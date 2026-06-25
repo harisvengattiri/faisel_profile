@@ -370,64 +370,151 @@ header {
 .company .social .social-link.linkedin:hover { background: #0a66c2; }
 .company .social .social-link.youtube:hover { background: #ff0000; }
 
-/* Contact */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 20px;
-    background: var(--bg);
+/* Contact — Get in Touch */
+.contact-panel {
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.contact-item:hover {
-    border-color: var(--primary-light);
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
 }
 
-.contact-icon {
-    width: 44px;
-    height: 44px;
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 28px;
+    transition: background 0.25s;
+}
+
+.contact-row:not(:last-child) {
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-row:hover {
+    background: var(--bg);
+}
+
+.contact-row-icon {
+    width: 48px;
+    height: 48px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: white;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     flex-shrink: 0;
 }
 
-.contact-details span {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 4px;
+.contact-row-body {
+    flex: 1;
+    min-width: 0;
 }
 
-.contact-details a,
-.contact-details p {
+.contact-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+
+.contact-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-line a {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--dark);
     text-decoration: none;
-    margin: 0;
-    line-height: 1.5;
+    transition: color 0.25s;
+    white-space: nowrap;
 }
 
-.contact-details a:hover {
+.contact-line a:hover {
     color: var(--primary);
+}
+
+.contact-line-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.contact-sep {
+    color: var(--text-muted);
+    font-weight: 400;
+    user-select: none;
+}
+
+.contact-line-emails,
+.contact-line-phones {
+    gap: 10px;
+}
+
+.contact-email-group,
+.contact-phone-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.25s;
+}
+
+.contact-email-group:hover,
+.contact-phone-group:hover {
+    color: var(--primary);
+}
+
+.contact-inline-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.contact-inline-icon-wa {
+    color: #25d366;
+    font-size: 14px;
+}
+
+.contact-wa-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.25s;
+}
+
+.contact-wa-group:hover {
+    color: #128c7e;
+}
+
+.contact-wa-group:hover .contact-inline-icon-wa {
+    color: #128c7e;
 }
 
 /* Footer */
@@ -508,5 +595,57 @@ footer {
 
     .company .social .social-link {
         padding: 10px 12px;
+    }
+
+    .contact-row {
+        padding: 18px 20px;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .contact-row-body {
+        text-align: left;
+        width: 100%;
+    }
+
+    .contact-label {
+        text-align: left;
+    }
+
+    .contact-line {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-line .contact-sep {
+        display: none;
+    }
+
+    .contact-row-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .contact-line a {
+        font-size: 0.88rem;
+        white-space: normal;
+        text-align: left;
+    }
+
+    .contact-email-group,
+    .contact-phone-group,
+    .contact-wa-group {
+        white-space: normal;
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+    }
+
+    .contact-line-text {
+        font-size: 0.88rem;
+        text-align: left;
     }
 }
